@@ -8,20 +8,20 @@ The following scripts can be followed as a basic workflow, but it's possible tha
 - Verify checksums at destination
 - Package into a tarball to maintain directory structure during storage
 
-#### Create checksums for source files
+### Create checksums for source files
 **Create md5 manifest using hashdeep**
 `$ hashdeep -re path/to/source01_location > path/to/known_hashes.txt`
 - `-r` recursive mode
 - `-e` show progress as manifest is generated
 
-#### Transfer files off flash memory card
+### Transfer files off flash memory card
 **Rsync to storage volume**
 `$ rsync -va --progress /path/to/source/files/or/directory /path/to/destination/directory`
 - `-v` verbose, gives you more information about transfer
 - `-a` archive mode: recursive, preserves permissions
 - `--progress` shows progress during transfer
 
-#### Verify checksums for transferred files
+### Verify checksums for transferred files
 **Verify md5 manifest using hashdeep**
 `$ hashdeep -vvreak path/to/known_hashes.txt path/to/sourcelocation02 > path/to/hashdeep_validation.txt`
 - `-vv` extra verbose
@@ -29,7 +29,7 @@ The following scripts can be followed as a basic workflow, but it's possible tha
 - `-e` compute estimated time remaining for each file
 - `-ak` audit mode to validate files against known hashes
 
-#### Package files to preserve hierarchy
+### Package files to preserve hierarchy
 **Compress directory structure into tarball**
 `$ tar -czvf name-of-archive.tar.gz /path/to/directory-or-file`
 - `-c` create an archive
